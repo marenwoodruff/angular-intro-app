@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="IntroToAngularApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Intro to Angular</title>
+    <link type="text/css" rel='stylesheet' href="stylesheets/style.css">
+  </head>
+  <body>
+    <section ng-controller="HomeController as home">
+        <p>{{ home.awesome }}</p>
+        <p>{{ home.wdiClass | uppercase }}</p>
+        <p>{{ home.price | currency }}</p>
+
+        <h2>Items in Checkout</h2>
+        <ul ng-repeat="item in home.checkout">
+            <li>{{ item }}</li>
+        </ul>
+
+        <h3>Instructors</h3>
+        <ul ng-repeat="name in home.names track by $index">
+            <li>{{ $index + 1 }}. {{ name }}</li>
+        </ul>
+    </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/homeController.js"></script>
+  </body>
+</html>
